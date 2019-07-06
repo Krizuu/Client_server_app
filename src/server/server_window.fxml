@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?package server?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1000.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.Controller">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="174.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #bcdedf;" VBox.vgrow="NEVER">
+               <children>
+                  <ImageView fitHeight="160.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
+                     <image>
+                        <Image url="@server.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="-180.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="SERVER">
+                     <font>
+                        <Font name="System Italic" size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <VBox prefHeight="165.0" prefWidth="146.0">
+                     <children>
+                        <Label text="Server's port:">
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin></Label>
+                        <TextField fx:id="Port" promptText="Port" text="55555" />
+                        <Label text="Server's name:" />
+                        <TextField fx:id="serverPath" promptText="Path" text="server" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <VBox prefHeight="166.0" prefWidth="166.0">
+                           <children>
+                              <Button fx:id="StartB" defaultButton="true" mnemonicParsing="false" onAction="#Start" style="-fx-background-color: #16d222;" text="Start server">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="40.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="StopB" disable="true" mnemonicParsing="false" onAction="#Stop" style="-fx-background-color: red;" text="Stop server">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="FileTable" prefHeight="456.0" prefWidth="711.0">
+               <columns>
+                  <TableColumn fx:id="columnAllNames" editable="false" prefWidth="219.20001220703125" text="File name" />
+                  <TableColumn fx:id="columnAllOwner" editable="false" prefWidth="197.5999755859375" text="Owner" />
+                  <TableColumn fx:id="columnAllOthers" editable="false" prefWidth="196.00006103515625" text="Shared" />
+               </columns>
+            </TableView>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox spacing="5.0" style="-fx-background-color: #bcdedf;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="boxHdd1" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="labelHdd1" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="157.0" style="-fx-background-color: #bcdedf;" text="DYSK 1" textAlignment="CENTER" />
+                  <Separator prefWidth="200.0" />
+                  <Label fx:id="HDD1Count" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="93.0" text="-" />
+                  <Label fx:id="HDD1Operation" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="90.0" text="-" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="boxHdd2" alignment="CENTER" layoutX="15.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="101.0" style="-fx-background-color: #bcdedf;" text="DYSK 2" textAlignment="CENTER" />
+                  <Separator prefWidth="200.0" />
+                  <Label fx:id="HDD2Count" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="93.0" text="-" />
+                  <Label fx:id="HDD2Operation" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="90.0" text="-" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="boxHdd3" alignment="CENTER" layoutX="15.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="101.0" style="-fx-background-color: #bcdedf;" text="DYSK 3" textAlignment="CENTER" />
+                  <Separator prefWidth="200.0" />
+                  <Label fx:id="HDD3Count" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="93.0" text="-" />
+                  <Label fx:id="HDD3Operation" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="90.0" text="-" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="boxHdd4" alignment="CENTER" layoutX="121.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="101.0" style="-fx-background-color: #bcdedf;" text="DYSK 4" textAlignment="CENTER" />
+                  <Separator prefWidth="200.0" />
+                  <Label fx:id="HDD4Count" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="93.0" text="-" />
+                  <Label fx:id="HDD4Operation" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="90.0" text="-" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </VBox>
+<!--            <VBox fx:id="boxHdd5" alignment="CENTER" layoutX="333.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">-->
+<!--               <children>-->
+<!--                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="101.0" style="-fx-background-color: #aaa;" text="HDD 5" textAlignment="CENTER" />-->
+<!--                  <Separator prefWidth="200.0" />-->
+<!--                  <Label fx:id="labelHdd5Files" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="93.0" text="(files)" />-->
+<!--                  <Label fx:id="labelHdd5Operations" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="90.0" text="(operations)" />-->
+<!--               </children>-->
+<!--               <padding>-->
+<!--                  <Insets bottom="5.0" />-->
+<!--               </padding>-->
+<!--            </VBox>-->
+            <VBox fx:id="boxAll" alignment="CENTER" layoutX="651.0" layoutY="15.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" style="-fx-background-color: #FFF;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="101.0" style="-fx-background-color: #ccc;" text="ALL" textAlignment="CENTER" />
+                  <Separator prefWidth="200.0" />
+                  <Label fx:id="HDDALLCount" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="93.0" text="-" />
+                  <Label fx:id="HDDALLOperation" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="90.0" text="-" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox prefHeight="530.0" prefWidth="188.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="189.0" text="Users:" />
+            <ListView fx:id="EnableUsers" prefHeight="442.0" prefWidth="178.0" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>
